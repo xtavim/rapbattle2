@@ -1,0 +1,53 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+  <head>
+      <thymeleaf th:replace="header :: header" />
+  </head>
+
+  <body>
+  <div class="login-page">
+      <div class="wrap">
+            <div class="form">
+                <form class="form-horizontal" th:object="${user}" th:action="@{/register}" method="post">
+
+                    <div>
+                        <span class="help-block" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}" style="color:red">First name error messages</span>
+                        <input type="text" placeholder="First Name" id="firstName" name="firstName" th:field="*{firstName}" />
+                    </div>
+
+                    <div>
+                        <span class="help-block" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}" style="color:red">Last name error messages</span>
+                        <input type="text" placeholder="Last Name" id="lastName" name="lastName" th:field="*{lastName}" />
+                    </div>
+
+                    <div>
+                        <span class="help-block" th:if="${#fields.hasErrors('email')}" th:errors="*{email}" style="color:red">Email error messages</span>
+                        <input type="text" placeholder="Email" id="email" name="email" th:field="*{email}" />
+                    </div>
+
+                    <div>
+                        <span class="help-block" th:if="${#fields.hasErrors('password')}" th:errors="*{password}" style="color:red">Password Name error messages</span>
+                        <input type="password" placeholder="Password" id="password" name="password" th:field="*{password}" />
+                    </div>
+
+                   <div>
+                        <span class="help-block" th:if="${#fields.hasErrors('confirmPassword')}" th:errors="*{password}" style="color:red">Password Name error messages</span>
+                        <input type="password" placeholder="Confirm password" id="confirmPassword" name="confirmPassword" th:field="*{confirmPassword}" />
+                    </div>
+
+                    <button type="submit" id="register" name="register"> JOIN US BRODA! </button>
+                    <p class="message">Already have account? <a href="login.html">Back to login broda!</a></p>
+                    <label class="help-block" th:if="${#fields.hasGlobalErrors()}")>Yo dude! your form has errors!</label>
+                    <label style="color:green" th:text="${infoMessage}"></label>
+                    <label style="color:red" th:text="${noMatchPassword}"></label>
+                </form>
+            </div>
+        </div>
+    </div>
+  </body>
+  <style>
+      body{
+          background-image: url("resources/background.jpg");
+      }
+  </style>
+</html>
