@@ -5,7 +5,7 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 
 @Entity
-@Table(name = "User")
+@Table(name = "User", schema = "rapbattledb")
 public class User {
 
     @Id
